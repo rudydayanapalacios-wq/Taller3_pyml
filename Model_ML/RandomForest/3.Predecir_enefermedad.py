@@ -19,6 +19,12 @@ st.markdown("""
 
 @st.cache_resource
 def load_model():
+    ruta_modelo = os.path.join(
+        os.path.dirname(__file__),
+        "models",
+        "modelo_random_forest_ampliado.pkl"
+    )
+    return joblib.load(ruta_modelo)
     return joblib.load("Models/modelo_random_forest_ampliado.pkl")
 
 model = load_model()

@@ -222,8 +222,8 @@ for _ in range(n_registros):
 df = pd.DataFrame(datos)
 
 # Guardar
-os.makedirs("RandomForest/data/", exist_ok=True)
-df.to_csv("./dataset_medico_ampliado.csv", index=False)
+os.makedirs("data", exist_ok=True)
+df.to_csv("data/dataset_medico_ampliado.csv", index=False)
 
 print(f"✅ Dataset generado con {len(df)} registros y {len(df.columns)} columnas.")
 print("\n primeras filas:")

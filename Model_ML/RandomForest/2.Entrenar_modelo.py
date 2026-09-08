@@ -17,7 +17,7 @@ try:
     # 1. CARGA DEL DATASET AMPLIADO
     # =========================
     log("1. CARGA DEL DATASET AMPLIADO")
-    df = pd.read_csv("Data/dataset_medico_ampliado.csv")
+    df = pd.read_csv("data/dataset_medico_ampliado.csv")
     print(f"✔ Dataset cargado: {df.shape[0]} filas, {df.shape[1]} columnas")
     
     # =========================
@@ -74,8 +74,8 @@ try:
     # 7. GUARDAR MODELO
     # =========================
     log("6. GUARDANDO MODELO")
-    os.makedirs("Models", exist_ok=True)
-    modelo_path = "Models/modelo_random_forest_ampliado.pkl"
+    os.makedirs("models", exist_ok=True)
+    modelo_path = "models/modelo_random_forest_ampliado.pkl"
     joblib.dump(model, modelo_path)
     print(f"💾 Modelo guardado en: {modelo_path}")
     
