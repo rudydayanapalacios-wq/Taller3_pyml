@@ -27,6 +27,10 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://taller3pyml-production-3182.up.railway.app"
+]
+
 # Application definition
 
 INSTALLED_APPS = [
