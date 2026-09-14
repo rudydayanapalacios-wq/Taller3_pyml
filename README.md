@@ -63,10 +63,19 @@ La aplicación se abrirá automáticamente en el navegador.
 
 ### 04 · Deploy
 
-> ☁️ **Aplicación desplegada en Streamlit Community Cloud**
-
-Accede al sistema directamente desde:
-
+> **Streamlit**
 **[↗ Abrir Sistema de Diagnóstico Clínico](https://taller3pyml-rknuccl4d5dqw34cjxje4z.streamlit.app/)**
+
+
+> **Backend**
+**[↗ Abrir Api](https://taller3pyml-production-d263.up.railway.app/)**
+
+
+> **Frontend**
+
+**[↗ Abrir Backend](https://taller3pyml-production-3182.up.railway.app/)**
+
+
+
 
 ---
