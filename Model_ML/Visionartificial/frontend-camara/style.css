@@ -1,0 +1,718 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+    --background: #0c0c0d;
+    --sidebar: #101011;
+    --surface: #151516;
+    --surface-light: #1b1b1d;
+    --border: rgba(255, 255, 255, 0.08);
+    --text: #f2f0ee;
+    --muted: #858286;
+    --accent: #8b2944;
+    --accent-light: #b83d5b;
+    --success: #8fc7a3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    background-image:
+        linear-gradient(
+            rgba(12, 12, 13, 0.82),
+            rgba(12, 12, 13, 0.82)
+        ),
+        url("./wallpaper.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    background-color: var(--background);
+
+    color: var(--text);
+    font-family: "Inter", sans-serif;
+}
+
+button,
+a {
+    font-family: inherit;
+}
+
+.app {
+    min-height: 100vh;
+    display: flex;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+    width: 245px;
+    min-height: 100vh;
+
+    background: var(--sidebar);
+    border-right: 1px solid var(--border);
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 30px 22px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    margin-bottom: 70px;
+}
+
+.brand-mark {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--accent);
+    color: white;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+
+    border-radius: 8px;
+}
+
+.brand h1 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.brand span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.nav-title {
+    color: #555458;
+
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+
+    margin-bottom: 14px;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 12px 11px;
+
+    color: var(--muted);
+    background: transparent;
+
+    font-size: 12px;
+
+    border: none;
+    border-left: 2px solid transparent;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition: 0.2s ease;
+}
+
+.nav-item span {
+    color: #555458;
+    font-size: 9px;
+}
+
+.nav-item:hover {
+    color: var(--text);
+    background: var(--surface);
+}
+
+.nav-item.active {
+    color: var(--text);
+    background: var(--surface);
+
+    border-left-color: var(--accent-light);
+}
+
+.nav-item.active span {
+    color: var(--accent-light);
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
+.model-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 14px;
+
+    border: 1px solid var(--border);
+    background: var(--surface);
+
+    border-radius: 8px;
+}
+
+.model-status strong {
+    display: block;
+    font-size: 10px;
+}
+
+.model-status small {
+    display: block;
+
+    margin-top: 4px;
+
+    color: var(--muted);
+    font-size: 8px;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: var(--success);
+
+    box-shadow: 0 0 10px rgba(143, 199, 163, 0.5);
+}
+
+.version {
+    margin-top: 18px;
+
+    color: #444347;
+
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.main {
+    flex: 1;
+
+    padding: 42px 50px 25px;
+
+    max-width: 1500px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin-bottom: 35px;
+}
+
+.eyebrow,
+.card-label {
+    color: var(--accent-light);
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 1.8px;
+}
+
+.topbar h2 {
+    margin-top: 9px;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 34px;
+    letter-spacing: -1px;
+}
+
+.subtitle {
+    margin-top: 7px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+.system-indicator {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 9px 13px;
+
+    border: 1px solid var(--border);
+    border-radius: 20px;
+
+    color: #aaa8aa;
+
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) 270px;
+
+    gap: 18px;
+}
+
+/* =========================
+   CAMERA
+========================= */
+
+.camera-card,
+.analytics {
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+}
+
+.camera-card {
+    padding: 20px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 17px;
+}
+
+.card-header h3 {
+    margin-top: 5px;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 17px;
+}
+
+.live {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    color: #aaa8aa;
+
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+.live span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: var(--accent-light);
+}
+
+/* =========================
+   VIDEO + CANVAS
+========================= */
+
+.camera-container {
+    position: relative;
+
+    width: 100%;
+    height: 450px;
+
+    background: #080809;
+
+    overflow: hidden;
+
+    border-radius: 7px;
+    border: 1px solid var(--border);
+}
+
+#video {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    min-height: 450px;
+
+    /*
+       IMPORTANTE:
+       El video y el canvas deben tener
+       exactamente la misma proporción.
+    */
+    object-fit: fill;
+
+    position: relative;
+    z-index: 1;
+}
+
+#canvas {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    /*
+       El canvas queda ENCIMA del video.
+    */
+    z-index: 10;
+}
+
+.camera-placeholder {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(139, 41, 68, 0.08),
+            transparent 50%
+        );
+
+    z-index: 20;
+}
+
+.camera-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 15px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 50%;
+
+    color: var(--muted);
+
+    font-size: 25px;
+    font-weight: 200;
+}
+
+.camera-placeholder p {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 14px;
+}
+
+.camera-placeholder small {
+    margin-top: 6px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+.camera-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-top: 17px;
+}
+
+.camera-status {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+#startButton {
+    border: none;
+    border-radius: 6px;
+
+    padding: 11px 18px;
+
+    background: var(--accent);
+
+    color: white;
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+#startButton:hover {
+    background: var(--accent-light);
+}
+
+#startButton:disabled {
+    opacity: 0.45;
+
+    cursor: not-allowed;
+}
+
+/* =========================
+   ANALYTICS
+========================= */
+
+.analytics {
+    padding: 22px;
+}
+
+.analytics-header {
+    display: flex;
+    justify-content: space-between;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.small-label {
+    color: #555458;
+
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+.metric {
+    padding: 25px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.metric-label {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 8px;
+    letter-spacing: 1.2px;
+}
+
+.metric strong {
+    display: block;
+
+    margin-top: 9px;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 29px;
+}
+
+.metric-description {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #5f5d61;
+
+    font-size: 9px;
+}
+
+.model-name {
+    color: var(--accent-light);
+}
+
+.technology {
+    padding-top: 25px;
+}
+
+.tech-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    margin-top: 12px;
+}
+
+.tech-list span {
+    padding: 6px 8px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 4px;
+
+    color: #8c898d;
+
+    font-size: 8px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 22px;
+
+    color: #4d4b4f;
+
+    font-size: 8px;
+    letter-spacing: 0.5px;
+}
+
+/* =========================
+   SECCIONES
+========================= */
+
+.page-section {
+    display: none;
+}
+
+.page-section.active-section {
+    display: block;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+    .sidebar {
+        width: 200px;
+    }
+
+    .main {
+        padding: 30px;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .analytics {
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 20px;
+    }
+
+    .analytics-header,
+    .technology {
+        display: none;
+    }
+
+    .metric {
+        border-bottom: none;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        display: none;
+    }
+
+    .main {
+        padding: 25px 18px;
+    }
+
+    .topbar {
+        display: block;
+    }
+
+    .system-indicator {
+        display: inline-flex;
+
+        margin-top: 20px;
+    }
+
+    .topbar h2 {
+        font-size: 27px;
+    }
+
+    .camera-container {
+        height: 300px;
+        min-height: 300px;
+    }
+
+    #video {
+        height: 300px;
+        min-height: 300px;
+    }
+
+    #canvas {
+        width: 100%;
+        height: 100%;
+    }
+
+    .analytics {
+        display: block;
+    }
+
+    .metric {
+        border-bottom: 1px solid var(--border);
+    }
+
+    footer {
+        flex-direction: column;
+
+        gap: 8px;
+    }
+}

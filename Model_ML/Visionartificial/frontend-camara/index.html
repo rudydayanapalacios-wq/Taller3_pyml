@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vision AI | Facial Detection</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- BARRA LATERAL -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <div class="brand-mark">V</div>
+
+                <div>
+                    <h1>VISION AI</h1>
+                    <span>Computer Vision</span>
+                </div>
+            </div>
+
+            <nav class="navigation">
+
+                <p class="nav-title">WORKSPACE</p>
+
+                <a href="#" class="nav-item active">
+                    <span>01</span>
+                    Dashboard
+                </a>
+
+                <a href="#" class="nav-item">
+                    <span>02</span>
+                    Facial Detection
+                </a>
+
+                <a href="#" class="nav-item">
+                    <span>03</span>
+                    Camera
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <div class="model-status">
+                    <span class="status-dot"></span>
+
+                    <div>
+                        <strong>System online</strong>
+                        <small>Detection engine ready</small>
+                    </div>
+                </div>
+
+                <div class="version">
+                    ML PROJECT · 2026
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main">
+
+            <!-- HEADER -->
+            <header class="topbar">
+
+                <div>
+                    <p class="eyebrow">COMPUTER VISION / REAL TIME</p>
+
+                    <h2>Facial Detection</h2>
+
+                    <p class="subtitle">
+                        Real-time facial analysis through your camera.
+                    </p>
+                </div>
+
+                <div class="system-indicator">
+                    <span class="status-dot"></span>
+                    SYSTEM ONLINE
+                </div>
+
+            </header>
+
+
+            <!-- DASHBOARD -->
+            <section class="dashboard">
+
+                <!-- CÁMARA -->
+                <div class="camera-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <span class="card-label">LIVE CAMERA</span>
+                            <h3>Detection View</h3>
+                        </div>
+
+                        <div class="live">
+                            <span></span>
+                            LIVE
+                        </div>
+
+                    </div>
+
+
+                    <div class="camera-container">
+
+                        <video
+                            id="video"
+                            autoplay
+                            muted
+                            playsinline>
+                        </video>
+
+                        <canvas id="canvas"></canvas>
+
+                        <div class="camera-placeholder">
+
+                            <div class="camera-icon">
+                                +
+                            </div>
+
+                            <p>Camera inactive</p>
+
+                            <small>
+                                Start the camera to begin detection
+                            </small>
+
+                        </div>
+
+                        <div class="camera-corners"></div>
+
+                    </div>
+
+
+                    <div class="camera-footer">
+
+                        <div class="camera-status">
+                            <span class="status-dot"></span>
+                            <span id="status">
+                                Camera offline
+                            </span>
+                        </div>
+
+                        <button id="startButton">
+                            START CAMERA
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PANEL DERECHO -->
+                <aside class="analytics">
+
+                    <div class="analytics-header">
+                        <span class="card-label">ANALYTICS</span>
+                        <span class="small-label">LIVE DATA</span>
+                    </div>
+
+
+                    <div class="metric">
+
+                        <span class="metric-label">
+                            FACES DETECTED
+                        </span>
+
+                        <strong id="faceCount">
+                            0
+                        </strong>
+
+                        <span class="metric-description">
+                            Currently visible
+                        </span>
+
+                    </div>
+
+
+                    <div class="metric">
+
+                        <span class="metric-label">
+                            DETECTION MODEL
+                        </span>
+
+                        <strong class="model-name">
+                            HAAR
+                        </strong>
+
+                        <span class="metric-description">
+                            Cascade Classifier
+                        </span>
+
+                    </div>
+
+
+                    <div class="metric">
+
+                        <span class="metric-label">
+                            PROCESSING
+                        </span>
+
+                        <strong>
+                            REAL-TIME
+                        </strong>
+
+                        <span class="metric-description">
+                            Live video analysis
+                        </span>
+
+                    </div>
+
+
+                    <div class="technology">
+
+                        <span class="card-label">
+                            TECHNOLOGY
+                        </span>
+
+                        <div class="tech-list">
+                            <span>Python</span>
+                            <span>OpenCV</span>
+                            <span>Machine Learning</span>
+                        </div>
+
+                    </div>
+
+                </aside>
+
+            </section>
+
+
+            <!-- FOOTER -->
+            <footer>
+
+                <span>
+                    Vision AI · Facial Detection System
+                </span>
+
+                <span>
+                    OpenCV / Computer Vision
+                </span>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
