@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vision AI | Facial Detection</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+        <aside class="sidebar">
+
+            <div class="brand">
+
+                <div class="brand-mark">
+                    V
+                </div>
+
+                <div>
+                    <div class="brand-name">
+                        VISION AI
+                    </div>
+
+                    <div class="brand-subtitle">
+                        Computer Vision
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="sidebar-section">
+
+                <span class="sidebar-label">
+                    WORKSPACE
+                </span>
+
+
+                <button
+                    class="nav-item active"
+                    type="button"
+                >
+                    <span class="nav-icon">
+                        ⌂
+                    </span>
+
+                    <span>
+                        Dashboard
+                    </span>
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    id="btnModeUpload"
+                    type="button"
+                >
+                    <span class="nav-icon">
+                        ◎
+                    </span>
+
+                    <span>
+                        Facial Detection
+                    </span>
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    id="btnModeCamera"
+                    type="button"
+                >
+                    <span class="nav-icon">
+                        ◉
+                    </span>
+
+                    <span>
+                        Camera
+                    </span>
+                </button>
+
+            </div>
+
+
+            <div class="sidebar-bottom">
+
+                <div class="system-status">
+
+                    <span class="status-dot"></span>
+
+                    <div>
+
+                        <strong>
+                            System online
+                        </strong>
+
+                        <small>
+                            Detection engine ready
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="version">
+                    ML PROJECT · 2026
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =========================
+             MAIN
+        ========================== -->
+        <main class="main-content">
+
+
+            <!-- TOPBAR -->
+            <header class="topbar">
+
+                <div>
+
+                    <span class="eyebrow">
+                        COMPUTER VISION / REAL TIME
+                    </span>
+
+                    <h1>
+                        Facial Detection
+                    </h1>
+
+                    <p>
+                        Real-time facial analysis through your camera.
+                    </p>
+
+                </div>
+
+
+                <div class="online-indicator">
+
+                    <span class="status-dot"></span>
+
+                    SYSTEM ONLINE
+
+                </div>
+
+            </header>
+
+
+            <!-- =========================
+                 WORKSPACE
+            ========================== -->
+            <section class="workspace">
+
+
+                <!-- =========================
+                     MAIN CAMERA CARD
+                ========================== -->
+                <div class="camera-card">
+
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span class="section-label">
+                                LIVE CAMERA
+                            </span>
+
+                            <h2>
+                                Detection View
+                            </h2>
+
+                        </div>
+
+
+                        <span class="live-badge">
+
+                            <span></span>
+
+                            LIVE
+
+                        </span>
+
+                    </div>
+
+
+                    <!-- =========================
+                         CAMERA SECTION
+                    ========================== -->
+                    <section
+                        id="sectionCamera"
+                        class="mode-section"
+                    >
+
+                        <div class="camera-container">
+
+
+                            <video
+                                id="webcam"
+                                autoplay
+                                playsinline
+                                muted
+                            ></video>
+
+
+                            <canvas
+                                id="canvasFrame"
+                                width="400"
+                                height="300"
+                            ></canvas>
+
+
+                            <div
+                                id="cameraPlaceholder"
+                                class="camera-placeholder"
+                            >
+
+                                <div class="placeholder-icon">
+                                    ◉
+                                </div>
+
+                                <p>
+                                    Camera feed inactive
+                                </p>
+
+                                <small>
+                                    Start the camera to begin detection
+                                </small>
+
+                            </div>
+
+
+                            <!-- DECORACIÓN DE ESQUINAS -->
+
+                            <div class="corner corner-tl"></div>
+
+                            <div class="corner corner-tr"></div>
+
+                            <div class="corner corner-bl"></div>
+
+                            <div class="corner corner-br"></div>
+
+
+                            <!-- RESULTADO DEL BACKEND -->
+
+                            <img
+                                id="imgResult"
+                                class="result-image d-none"
+                                alt="Resultado de detección"
+                            >
+
+                        </div>
+
+
+                        <!-- CONTROLES DE CÁMARA -->
+
+                        <div class="camera-footer">
+
+
+                            <div class="camera-status">
+
+                                <span class="status-dot"></span>
+
+                                <span>
+                                    Ready for detection
+                                </span>
+
+                            </div>
+
+
+                            <div class="camera-controls">
+
+
+                                <button
+                                    id="btnStartCamera"
+                                    class="primary-button"
+                                    type="button"
+                                >
+                                    START CAMERA
+                                </button>
+
+
+                                <button
+                                    id="btnToggleCamera"
+                                    class="secondary-button"
+                                    type="button"
+                                    style="display: none;"
+                                >
+                                    SWITCH CAMERA
+                                </button>
+
+
+                                <button
+                                    id="btnStopCamera"
+                                    class="secondary-button"
+                                    type="button"
+                                    disabled
+                                >
+                                    STOP CAMERA
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =========================
+                         UPLOAD SECTION
+                    ========================== -->
+                    <section
+                        id="sectionUpload"
+                        class="mode-section d-none"
+                    >
+
+
+                        <div
+                            id="dropZone"
+                            class="upload-zone"
+                        >
+
+
+                            <input
+                                id="fileInput"
+                                class="drop-zone-input"
+                                type="file"
+                                accept="image/*"
+                            >
+
+
+                            <div class="upload-content">
+
+
+                                <div class="upload-icon">
+                                    ↑
+                                </div>
+
+
+                                <h3>
+                                    Upload an image
+                                </h3>
+
+
+                                <p>
+                                    Drag and drop an image here
+                                    or click to browse
+                                </p>
+
+
+                                <span>
+                                    JPG, PNG or JPEG
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            id="btnProcess"
+                            class="primary-button process-button"
+                            type="button"
+                            disabled
+                        >
+                            DETECT FACES
+                        </button>
+
+
+                        <!-- RESULTADOS DE IMAGEN -->
+
+                        <div class="upload-results">
+
+
+                            <!-- ORIGINAL -->
+
+                            <div
+                                id="boxOriginal"
+                                class="image-panel"
+                            >
+
+                                <div class="panel-title">
+                                    ORIGINAL IMAGE
+                                </div>
+
+
+                                <div class="image-wrapper">
+
+                                    <img
+                                        id="imgOriginal"
+                                        class="d-none"
+                                        alt="Imagen original"
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- RESULTADO -->
+
+                            <div class="image-panel">
+
+                                <div class="panel-title">
+                                    DETECTION RESULT
+                                </div>
+
+
+                                <div class="image-wrapper">
+
+                                    <img
+                                        id="uploadResult"
+                                        alt="Resultado de detección"
+                                    >
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =========================
+                         LOADER
+                    ========================== -->
+                    <div
+                        id="loader"
+                        class="loader d-none"
+                    >
+
+                        <div class="loader-spinner"></div>
+
+                        <span>
+                            Processing image...
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
+                     ANALYTICS
+                ========================== -->
+                <aside class="analytics">
+
+
+                    <!-- DETECTION INFO -->
+
+                    <div class="analytics-card">
+
+                        <span class="section-label">
+                            ANALYTICS
+                        </span>
+
+
+                        <div class="face-stat">
+
+
+                            <div>
+
+                                <span class="stat-label">
+                                    FACES DETECTED
+                                </span>
+
+
+                                <strong id="faceCount">
+                                    0
+                                </strong>
+
+                            </div>
+
+
+                            <div class="stat-symbol">
+                                ◎
+                            </div>
+
+                        </div>
+
+
+                        <div class="metric">
+
+                            <span>
+                                DETECTION MODEL
+                            </span>
+
+                            <strong>
+                                HAAR Cascade Classifier
+                            </strong>
+
+                        </div>
+
+
+                        <div class="metric">
+
+                            <span>
+                                PROCESSING
+                            </span>
+
+                            <strong>
+                                REAL-TIME
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TECHNOLOGY -->
+
+                    <div class="analytics-card technology">
+
+                        <span class="section-label">
+                            TECHNOLOGY
+                        </span>
+
+
+                        <div class="tech-row">
+
+                            <span>
+                                Language
+                            </span>
+
+                            <strong>
+                                Python
+                            </strong>
+
+                        </div>
+
+
+                        <div class="tech-row">
+
+                            <span>
+                                Library
+                            </span>
+
+                            <strong>
+                                OpenCV
+                            </strong>
+
+                        </div>
+
+
+                        <div class="tech-row">
+
+                            <span>
+                                Method
+                            </span>
+
+                            <strong>
+                                Machine Learning
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================
+                         METRICS
+                    ========================== -->
+
+                    <div
+                        id="metricsZone"
+                        class="metrics-zone d-none"
+                    >
+
+                        <div class="metrics-title">
+                            DETECTION RESULT
+                        </div>
+
+
+                        <p>
+                            Faces detected in the current frame:
+                        </p>
+
+
+                        <strong id="metricsFaceCount">
+                            0
+                        </strong>
+
+                    </div>
+
+                </aside>
+
+            </section>
+
+
+            <!-- =========================
+                 FOOTER
+            ========================== -->
+            <footer class="footer">
+
+                <span>
+                    Vision AI · Facial Detection System
+                </span>
+
+
+                <span>
+                    OpenCV / Computer Vision
+                </span>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
